@@ -23,9 +23,9 @@ class App extends React.Component {
           montant: "100€",
         },
       ],
-      menuDepenseOuvert : false,
-      descNew : '',
-      montantNew : '',
+      menuDepenseOuvert: false,
+      descNew: "",
+      montantNew: "",
     };
   }
 
@@ -65,26 +65,40 @@ class App extends React.Component {
 
   handleClickDepens() {
     this.setState({
+      menuDepenseOuvert: !this.state.menuDepenseOuvert,
+    });
+  }
+  handleDepenseChange(desc) {
+    this.setState({
+      descNew: desc,
+    });
+  }
+
+  handleMontantChange(montant) {
+    if (!isNaN(montant)) {
+      this.setState({
+        montantNew: montant,
+      });
+    } else {
+      this.setState({
+        montantNew: 0,
+      });
+    }
+  }
+  handleClickAjout() {
+    let obj = {
+      desc : this.state.descNew,
+      montant : this.state.montantNew.toString() + '€'
+    }
+    let list = this.state.depenses
+    list.unshift(obj)
+    this.setState({
+      depenses : list,
+      budget : this.state.budget - this.state.montantNew,
       menuDepenseOuvert : !this.state.menuDepenseOuvert
     })
+    
   }
- handleDepenseChange(desc){
-  this.setState({
-    descNew : desc
-  })
- }
- 
-handleMontantChange(montant){
-  if(!isNaN(montant)){
-    this.setState({
-      montantNew : montant
-    })
-  }else{
-    this.setState({
-      montantNew : ''
-    })
-  }
-}
 
   render() {
     return (
@@ -113,10 +127,19 @@ handleMontantChange(montant){
                   <Depenses
                     value={this.state.budget + "€"}
                     depenses={this.state.depenses}
-                    onClick={() => {this.handleClickDepens()}}
+                    onClick={() => {
+                      this.handleClickDepens();
+                    }}
+                    onClickAjout={() => {
+                      this.handleClickAjout();
+                    }}
                     menuOuvert={this.state.menuDepenseOuvert}
-                    onChangeDesc={(desc) => {this.handleDepenseChange(desc)}}
-                    onChangeMontant={(montant) => {this.handleMontantChange(montant)}}
+                    onChangeDesc={(desc) => {
+                      this.handleDepenseChange(desc);
+                    }}
+                    onChangeMontant={(montant) => {
+                      this.handleMontantChange(montant);
+                    }}
                   />
                 }
               />
