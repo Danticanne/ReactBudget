@@ -1,13 +1,123 @@
+* {
+  font-size: large;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  background-color: white;
+}
+
+.navigation {
+  height: 100vh;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+}
+
+.Link {
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  height: 50px;
+  width: 100px;
+  background-color: white;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bouton {
+  padding: 5px;
+  margin: 10px;
+  transition: 0.5s;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid black;
+  width: 100px;
+  margin: 20px;
+}
+
+.enabled {
+  background-color: rgb(177, 177, 255);
+}
+
+.notEnabled {
+  opacity: 0.5;
+}
+
+.nav {
+  background-color: blue;
+  display: flex;
+  height: 150px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.layout {
+  background-color: white;
+  width: 400px;
+}
+.valueBudget {
+  font-size: 60px;
+  margin: 0px;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+  margin: 1px;
+  color: red;
+}
+
+.depense {
+  background-color: rgb(140, 201, 255);
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 25px;
+  margin: 5px;
+}
+
+.menu {
+  position: absolute;
+  translate: 0 150px;
+  background-color: rgb(140, 140, 255);
+  border-radius: 50px;
+  border: 3px solid black;
+  height: 300px;
+  width: 500px;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 400px;
+  height: 250px;
 }
